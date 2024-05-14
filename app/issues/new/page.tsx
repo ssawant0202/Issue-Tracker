@@ -11,6 +11,8 @@ import { Callout } from '@radix-ui/themes';
 import { validationSchema }  from '@/app/validationSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {z} from 'zod';
+import { ErrorMessage } from '@/components/ErrorMessage'
+import { Spinner } from '@/components/Spinner'
 
 //this automatically creates the interface issueform
 type IssueForm = z.infer<typeof validationSchema>;
@@ -26,6 +28,7 @@ const NewIssuesPage = () => {
     resolver: zodResolver(validationSchema)
   });
   const[error, setError] = useState('');
+  const[isSubmitting, setSubmitting] = useState(false);
   return (
     <div className='max-w-lg space-y-3'>
       {
@@ -36,21 +39,27 @@ const NewIssuesPage = () => {
     <form  
     onSubmit = {handleSubmit( async(data)=> {
       try {
+        setSubmitting(true);
         await axios.post('/api/issues', data);
         router.push('/issues');
       } catch (error) {
+        setSubmitting(false);
         setError('An unexpected error occoured.');
       }
       })}>
       <TextField.Root placeholder='Title' {...register('title')}></TextField.Root>
-      { errors.title && <Text className="mb-2" color="red" as="p">{errors.title.message}</Text>   }
+      <ErrorMessage>
+        {errors.title?.message}
+      </ErrorMessage>
       <Controller 
         name = "description"
         control = {control}
         render = {({field})=> <SimpleMDE placeholder='Description' {...field}/> }
         />
-        {errors.description && <Text className="mb-2" color="red" as="p">{errors.description.message}</Text> }
-      <Button>Submit New Issue</Button>
+        <ErrorMessage>
+        {errors.description?.message}
+      </ErrorMessage>
+      <Button disabled = {isSubmitting}>Submit New Issue {isSubmitting && <Spinner/>}</Button>
     </form>
     </div>
   )
