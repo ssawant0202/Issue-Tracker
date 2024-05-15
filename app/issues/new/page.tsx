@@ -1,6 +1,6 @@
 'use client'
+import dynamic from 'next/dynamic';
 import axios from 'axios'
-import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import { Text, TextArea, TextField,  } from '@radix-ui/themes'
 import { Button } from '@radix-ui/themes'
@@ -14,6 +14,13 @@ import {z} from 'zod';
 import { ErrorMessage } from '@/components/ErrorMessage'
 import { Spinner } from '@/components/Spinner'
 import delay from 'delay';
+
+
+const SimpleMDE = dynamic(
+  () => import('react-simplemde-editor'),
+  {ssr: false}
+
+);
 //this automatically creates the interface issueform
 type IssueForm = z.infer<typeof validationSchema>;
 // interface IssueForm{
