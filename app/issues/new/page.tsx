@@ -13,7 +13,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {z} from 'zod';
 import { ErrorMessage } from '@/components/ErrorMessage'
 import { Spinner } from '@/components/Spinner'
-
+import delay from 'delay';
 //this automatically creates the interface issueform
 type IssueForm = z.infer<typeof validationSchema>;
 // interface IssueForm{
@@ -23,6 +23,7 @@ type IssueForm = z.infer<typeof validationSchema>;
 
 
 const NewIssuesPage = () => {
+  // await delay(2000)
   const router = useRouter();
   const {register, control, handleSubmit, formState:{errors}} = useForm<IssueForm>({
     resolver: zodResolver(validationSchema)
