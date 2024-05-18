@@ -14,4 +14,5 @@ const Spinner = () => {
   )
 }
 
-export {Spinner} 
+// export {Spinner} 
+export default Spinner

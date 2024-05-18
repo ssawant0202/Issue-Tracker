@@ -9,4 +9,6 @@ const ErrorMessage = ({children}: PropsWithChildren) => {
   )
 }
 
-export  {ErrorMessage}
+// export  {ErrorMessage}
+export default ErrorMessage
+
