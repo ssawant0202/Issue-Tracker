@@ -17,7 +17,7 @@ type IssueForm = z.infer<typeof createIssueSchema>;
 
 
 const NewIssuesPage = ({issue}:{issue?:Issue}) => {
-  // await delay(2000)
+  //  await delay(2000)
   const router = useRouter();
   const {register, control, handleSubmit, formState:{errors}} = useForm<IssueForm>({
     resolver: zodResolver(createIssueSchema)
