@@ -9,6 +9,8 @@ const NavBar = () => {
     const links = [
         {label: 'Dashboard', href:'/'},
         {label: 'Issues', href:'/issues/list'},
+        {label: 'Login', href:'/api/auth/signin'},
+
         
     ]
   return (
