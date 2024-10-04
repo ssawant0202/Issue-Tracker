@@ -5,7 +5,7 @@ import { TiCode } from "react-icons/ti";
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import { useSession } from 'next-auth/react';
-import { Box, Container, Flex } from '@radix-ui/themes';
+import { Avatar, Box, Container, DropdownMenu, Flex } from '@radix-ui/themes';
 
 const NavBar = () => {
     const {status, data: session} = useSession(); // data property is renamed to session
@@ -16,10 +16,10 @@ const NavBar = () => {
     const links = [
         {label: 'Dashboard', href:'/'},
         {label: 'Issues', href:'/issues/list'},
-        // {
-        //   label: status === 'authenticated'? session.user?.name: status === 'loading'? 'Loading...': 'Login',
-        //   href: status === 'authenticated'? '/profile': '/api/auth/signin'
-        // },
+        {
+          label: status === 'authenticated'? session.user?.name: status === 'loading'? 'Loading...': ' ',
+          href: status === 'authenticated'? '/profile': '/api/auth/signin'
+        },
 
         
     ]
@@ -43,7 +43,20 @@ const NavBar = () => {
 
           <Box>
             {
-            status === "authenticated" && (<Link href = "/api/auth/signout"> Log out</Link>)
+            status === "authenticated" && (
+              // <Link href = "/api/auth/signout"> Log out</Link>
+              <DropdownMenu.Root>
+                <DropdownMenu.Trigger>
+                  <Avatar 
+                  src = {session.user?.image!} 
+                  fallback = "!" 
+                  size = "2" 
+                  className = "cursor-pointer"
+                  referrerPolicy = "no-referrer"
+                  radius = "full"/>
+                </DropdownMenu.Trigger>
+              </DropdownMenu.Root>
+            )
             }
             {status === "unauthenticated" && (<Link href = "/api/auth/signin"> Login</Link>)}
           </Box>
