@@ -20,13 +20,11 @@ const NavBar = () => {
         //   label: status === 'authenticated'? session.user?.name: status === 'loading'? 'Loading...': ' ',
         //   href: status === 'authenticated'? '/profile': '/api/auth/signin'
         // },
-
-        
     ]
   return (
     <nav className='border-b px-5 mb-5  py-3'>
-      <Container className="w-full">
-        <Flex justify = "between"  >
+      <Container>
+        <Flex justify = "between">
           <Flex align = "center" gap = "2" > 
           <Link href="/"><TiCode /></Link>
           <ul className='flex space-x-6'>
@@ -45,14 +43,12 @@ const NavBar = () => {
             {
             status === "authenticated" && (
               <>
-      
-
               <Flex align = "center" gap = "3" >
               <Link href = "/profile" className={classNames({
               'text-amber-500': "/profile" === currentPath,
               'text-zinc-500': "/profile"!!=currentPath,
               'hover:text-zinc-800 transition-colors':true
-            })}> Siddhesh Sawant</Link>
+            })}> {session.user?.name!}</Link>
               
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger>
