@@ -8,7 +8,7 @@ import { useSession } from 'next-auth/react';
 import { Avatar, Box, Container, DropdownMenu, Flex, Text } from '@radix-ui/themes';
 
 const NavBar = () => {
-    const {status, data: session} = useSession(); // data property is renamed to session
+  const {status, data: session} = useSession(); // data property is renamed to session
 
     
     
@@ -52,7 +52,7 @@ const NavBar = () => {
               'text-amber-500': "/profile" === currentPath,
               'text-zinc-500': "/profile"!!=currentPath,
               'hover:text-zinc-800 transition-colors':true
-            })}> Siddhesh Sawant</Link>
+            })}> {session.user?.name}</Link>
               
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger>
@@ -87,5 +87,6 @@ const NavBar = () => {
     </nav>
   )
 }
+
 
 export default NavBar
