@@ -75,7 +75,7 @@ const NavBar = () => {
               </>
             )
             }
-            {status === "unauthenticated" && (<Link href = "/api/auth/signin"> Login</Link>)}
+            {status === "unauthenticated" && (<Link href = "/api/auth/signin" color="gray"> Login</Link>)}
           </Box>
         </Flex>
       </Container>

@@ -1,4 +1,5 @@
 import Pagination from "@/components/Pagination"
+import { Container, Text } from "@radix-ui/themes";
 import { useSearchParams } from "next/navigation";
 
 interface Props{
@@ -6,6 +7,8 @@ interface Props{
 }
 export default function Home({searchParams}: {searchParams: {page : string}}) {
   return (
-    <Pagination itemCount={100} pageSize={10} currentPage={parseInt(searchParams.page)} />
+    <Container>
+    <Text size="1" color= "gray"> Dashboard in progress...</Text>
+    </Container>
   )
 }
