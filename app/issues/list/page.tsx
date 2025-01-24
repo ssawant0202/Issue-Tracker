@@ -1,6 +1,6 @@
 import { IssueStatusBadge, Link } from '@/components';
 import prisma from '@/prisma/client';
-import { Table } from '@radix-ui/themes';
+import { Container, Table } from '@radix-ui/themes';
 import IssueActions from './IssueActions';
 import { Issue, Status } from '@prisma/client';
 import NextLink from 'next/link';
@@ -44,6 +44,7 @@ const IssuesPage = async({searchParams}: Props) => {
   const issueCount = await  prisma.issue.count({where: {status}}) // { where : {status}} means filter by status
   return (
     <div>
+      <Container>
       <IssueActions/> 
       <Table.Root variant= 'surface'>
         <Table.Header>
@@ -83,6 +84,7 @@ const IssuesPage = async({searchParams}: Props) => {
         currentPage={page}
         itemCount={issueCount}
       />
+    </Container>
     </div>
   )
 }
