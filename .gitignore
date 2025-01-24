@@ -35,5 +35,5 @@ commit.ps
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-node_modules
+node_modules/
 
