@@ -23,7 +23,7 @@ const NavBar = () => {
     ]
   return (
     <nav className='border-b px-5 mb-5  py-3'>
-      <Container>
+      {/* <Container> */}
         <Flex justify = "between">
           <Flex align = "center" gap = "2" > 
           <Link href="/"><TiCode /></Link>
@@ -78,7 +78,7 @@ const NavBar = () => {
             {status === "unauthenticated" && (<Link href = "/api/auth/signin" color="gray"> Login</Link>)}
           </Box>
         </Flex>
-      </Container>
+      {/* </Container> */}
         
     </nav>
   )

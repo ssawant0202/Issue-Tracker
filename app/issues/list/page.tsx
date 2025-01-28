@@ -44,7 +44,7 @@ const IssuesPage = async({searchParams}: Props) => {
   const issueCount = await  prisma.issue.count({where: {status}}) // { where : {status}} means filter by status
   return (
     <div>
-      <Container>
+      {/* <Container> */}
       <IssueActions/> 
       <Table.Root variant= 'surface'>
         <Table.Header>
@@ -84,7 +84,7 @@ const IssuesPage = async({searchParams}: Props) => {
         currentPage={page}
         itemCount={issueCount}
       />
-    </Container>
+    {/* </Container> */}
     </div>
   )
 }

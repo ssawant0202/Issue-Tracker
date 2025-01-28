@@ -7,8 +7,8 @@ interface Props{
 }
 export default function Home({searchParams}: {searchParams: {page : string}}) {
   return (
-    <Container>
+    
     <Text size="1" color= "gray"> Dashboard in progress...</Text>
-    </Container>
+    
   )
 }
