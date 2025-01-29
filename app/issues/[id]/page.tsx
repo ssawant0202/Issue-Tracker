@@ -11,6 +11,7 @@ import EditIssueButton from './EditIssueButton'
 import IssueDetails from './IssueDetails'
 import DeleteIssueButton from './DeleteIssueButton'
 import AssigneeSelect from './AssigneeSelect'
+import StatusSelect from './StatusSelect'
 interface Props{
     params:{ id: string}
 }
@@ -29,12 +30,11 @@ const IssueDetailPage = async ({params}: Props) => {
         <Box className='col-span-4'>
         <IssueDetails issue={issue}/>
         </Box>
-        <Box my="8" >
-        <Flex  gap = '4' >
-            
-            <AssigneeSelect issue = {issue}/>
+        <Box my="9" >
+        <Flex  gap = '4' >           
+            <AssigneeSelect issue = {issue}/>        
+            <StatusSelect issue = {issue}/>        
 
-            
         </Flex>
         <Flex direction = "column" my='3' mr = '9' gap = '4'>
             <EditIssueButton issueId={issue.id}/>

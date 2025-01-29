@@ -28,7 +28,8 @@ export async function PATCH(request: NextRequest, {params}:{params: {id:string}}
             data: {
                 title: body.title,
                 description: body.description,
-                assignedToUserId
+                assignedToUserId,
+                status: body.status
             },
         });
 

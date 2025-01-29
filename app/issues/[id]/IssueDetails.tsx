@@ -9,8 +9,8 @@ const IssueDetails = ({issue} : {issue: Issue}) => {
     <>
     <Heading>{issue.title}</Heading>
     <Flex gap="2" gapY="2">
-        <IssueStatusBadge status={issue.status}/>
-        <Text>{issue.createdAt.toDateString()}</Text>
+        {/* <IssueStatusBadge status={issue.status}/> */}
+        <Text size='2' mb='3' color="gray">{issue.createdAt.toDateString()}</Text>
     </Flex>
     <Card className='prose max-w-full'>
         <ReactMarkdown>{issue.description}</ReactMarkdown>

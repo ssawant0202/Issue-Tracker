@@ -32,9 +32,7 @@ if(error) return null;
     <Select.Root 
     defaultValue={issue.assignedToUserId || "null"}
     onValueChange={(userId) => {
-      axios.patch('/api/issues/' + issue.id, { 
-        assignedToUserId: userId === "null" ? null : userId 
-      }).catch(()=> {
+      axios.patch('/api/issues/' + issue.id, { assignedToUserId: userId === "null" ? null : userId }).catch(()=> {
         toast.error('Changes could not be saved!')
       });
       

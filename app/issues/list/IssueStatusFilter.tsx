@@ -17,7 +17,7 @@ const IssueStatusFilter = () => {
     <div>
         <Select.Root onValueChange={(status) => {
             if ( status === 'ALL')
-                router.push('/issues/list');
+                router.push('/issues/list'); //axios is used to send and receive data from backend while, router is used to navigate from one page to another
             else{
                 const query = status? `?status=${status}`:'';
                 router.push('/issues/list' + query);    
