@@ -43,7 +43,7 @@ const NavBar = () => {
             {
             status === "authenticated" && (
               <>
-              <Flex align = "center" gap = "3" >
+              <Flex align = "center" gap = "3" mr="2"  >
               <Link href = "/profile" className={classNames({
               'text-amber-500': "/profile" === currentPath,
               'text-zinc-500': "/profile"!!=currentPath,
