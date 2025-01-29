@@ -24,7 +24,7 @@ const LatestIssues = async () => {
                            {/* "column"	Arranges child elements vertically, from top to bottom. */}
                            <Flex justify={'between'}>
                             <Flex direction="column" align="start">
-                                <Link color = 'gray' href = {`/issues/${issue.id}`}> {issue.title} </Link>
+                                <Link color = "gray" weight="bold" href = {`/issues/${issue.id}`}> {issue.title} </Link>
                                 <IssueStatusBadge status={issue.status}/>
                             </Flex>
                             {issue.assignedToUser && (

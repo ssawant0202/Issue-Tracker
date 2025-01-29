@@ -29,13 +29,16 @@ const IssueDetailPage = async ({params}: Props) => {
         <Box className='col-span-4'>
         <IssueDetails issue={issue}/>
         </Box>
-        <Box>
-        <Flex direction = "column" gap = '4'>
+        <Box my="8" >
+        <Flex  gap = '4' >
             
             <AssigneeSelect issue = {issue}/>
+
+            
+        </Flex>
+        <Flex direction = "column" my='3' mr = '9' gap = '4'>
             <EditIssueButton issueId={issue.id}/>
             <DeleteIssueButton issueId={issue.id}/>
-            
         </Flex>
         </Box>    
         

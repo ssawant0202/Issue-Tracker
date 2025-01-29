@@ -35,17 +35,16 @@ const DeleteIssueButton = ({issueId}:{issueId:number}) => {
         </Button>
       </AlertDialog.Trigger>
       <AlertDialog.Content>
-        <AlertDialog.Title className="AlertDialogTitle">Are you absolutely sure?</AlertDialog.Title>
+        <AlertDialog.Title className="AlertDialogTitle">Delete this issue?</AlertDialog.Title>
         <AlertDialog.Description className="AlertDialogDescription">
-          This action cannot be undone. This will permanently delete your account and remove your
-          data from our servers.
+          This action cannot be undone. This will permanently delete the current issue from our servers.
         </AlertDialog.Description>
         <Flex mt = '1rem' gap='2'>
         <AlertDialog.Cancel>
             <Button variant = 'soft' color='gray'>Cancel</Button>
           </AlertDialog.Cancel>
           <AlertDialog.Action>
-            <Button color='red'  onClick={deleteIssue}>Yes, delete account</Button>
+            <Button color='red'  onClick={deleteIssue}>Yes, delete</Button>
           </AlertDialog.Action>
         </Flex>
       </AlertDialog.Content>

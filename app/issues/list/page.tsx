@@ -1,11 +1,13 @@
-import { IssueStatusBadge, Link } from '@/components';
+
+import { IssueStatusBadge } from '@/components';
 import prisma from '@/prisma/client';
-import { Container, Table } from '@radix-ui/themes';
+import { Container, Link, Table } from '@radix-ui/themes';
 import IssueActions from './IssueActions';
 import { Issue, Status } from '@prisma/client';
 import NextLink from 'next/link';
 import { ArrowUpIcon } from '@radix-ui/react-icons';
 import Pagination from '@/components/Pagination';
+import IssueStatusFilter from './IssueStatusFilter';
 
 interface Props{
   searchParams: {
@@ -45,7 +47,7 @@ const IssuesPage = async({searchParams}: Props) => {
   return (
     <div>
       {/* <Container> */}
-      <IssueActions/> 
+      <IssueActions/>
       <Table.Root variant= 'surface'>
         <Table.Header>
           <Table.Row>
@@ -64,7 +66,7 @@ const IssuesPage = async({searchParams}: Props) => {
           {issues.map(issue=>(
             <Table.Row key = {issue.id}>
               <Table.Cell>
-                <Link href={`/issues/${issue.id}`}>
+                <Link color = "gray" weight="bold" href={`/issues/${issue.id}`}>
                 {issue.title}
                 </Link>
                 <div className='block md:hidden'>
