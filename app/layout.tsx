@@ -33,10 +33,9 @@ export default function RootLayout({
       <Theme accentColor="orange" grayColor="gray" radius="full" scaling="110%">
         <NavBar />
         <main className='p-5'>{children}</main>
-        {/* <ThemePanel /> */}
-        </Theme>
-        </AuthProvider>
-        </QueryClientProvider>
+      </Theme>
+      </AuthProvider>
+      </QueryClientProvider>
       
       </body>
     </html>
