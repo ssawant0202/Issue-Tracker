@@ -13,7 +13,7 @@ import { Metadata } from 'next';
 interface Props{
   page:number;
 }
-export default async function Home({searchParams}: {searchParams: {page : string}}) {
+export default async function Home() {
   const open = await prisma.issue.count({
     where: {status: 'OPEN'}
   });
