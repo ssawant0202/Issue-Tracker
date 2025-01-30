@@ -7,6 +7,7 @@ import { ArrowUpIcon } from '@radix-ui/react-icons';
 import Pagination from '@/components/Pagination';
 import LatestIssues from './LatestIssues';
 import IssueSummary from './IssueSummary';
+import IssueChart from './IssueChart';
 
 interface Props{
   page:number;
@@ -27,6 +28,8 @@ export default async function Home({searchParams}: {searchParams: {page : string
 
   return (
     // <LatestIssues/>
-    <IssueSummary open = {open} inProgress={inProgress} closed={closed}/>
+    // <IssueSummary open = {open} inProgress={inProgress} closed={closed}/>
+    <IssueChart open = {open} inProgress={inProgress} closed={closed}/>
+
   )
 }
