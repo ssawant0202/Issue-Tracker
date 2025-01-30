@@ -8,6 +8,7 @@ import Pagination from '@/components/Pagination';
 import LatestIssues from './LatestIssues';
 import IssueSummary from './IssueSummary';
 import IssueChart from './IssueChart';
+import { Metadata } from 'next';
 
 interface Props{
   page:number;
@@ -38,3 +39,8 @@ export default async function Home({searchParams}: {searchParams: {page : string
 
   )
 }
+
+export const metadata: Metadata = {
+  title: 'Issue Tracker - Dashboard', 
+  description: 'View a summary fo project issues'
+};
