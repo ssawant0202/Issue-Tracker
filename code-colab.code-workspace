@@ -19,6 +19,8 @@
         "database": "mysql",
         "username": "root"
       }
-    ]
+    ],
+    "prisma.pinToPrisma6": true,
+    "prisma.fileWatcher": true
   }
 }

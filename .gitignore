@@ -28,6 +28,8 @@ yarn-error.log*
 .env*.local
 .env
 commit.ps
+api-tests/.env
+api-tests/config/properties.ini
 
 # vercel
 .vercel
@@ -37,3 +39,4 @@ commit.ps
 next-env.d.ts
 node_modules/
 
+code-colab.code-workspace
