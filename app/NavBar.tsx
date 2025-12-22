@@ -16,6 +16,7 @@ const NavBar = () => {
     const links = [
         {label: 'Dashboard', href:'/'},
         {label: 'Issues', href:'/issues/list'},
+        {label: status === 'authenticated'? 'Log out': '', href: '/api/auth/signout',}
         // {
         //   label: status === 'authenticated'? session.user?.name: status === 'loading'? 'Loading...': ' ',
         //   href: status === 'authenticated'? '/profile': '/api/auth/signin'
@@ -55,7 +56,7 @@ const NavBar = () => {
                   <Avatar 
                   src = {session.user?.image!} 
                   fallback = "!" 
-                  size = "2" 
+                  size = "3" 
                   className = "cursor-pointer"
                   referrerPolicy = "no-referrer"
                   radius = "full"/>
