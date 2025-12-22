@@ -27,11 +27,19 @@ def create_issue(title, description):
         "description": description
     }
     response = requests.post(URL, json=payload)
+    if response.status_code != 201:
+        raise AssertionError(
+            f"CREATE issue failed: {response.status_code} - {response.text}"
+    )
     return response.json()
 
 def delete_issue(issue_id):
     config = get_config()
     URL = config['API']['base_url'] + config['ENDPOINTS']['issue_by_id'].format(id=issue_id)
     response = requests.delete(URL)
+    if response.status_code not in (200, 204):
+        raise AssertionError(
+            f"DELETE issue failed: {response.status_code} - {response.text}"
+    )
     return response.json()
 
