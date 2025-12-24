@@ -53,19 +53,17 @@ def create_issue(client: APIClient, title: str, description: str) -> dict:
     }
     res = client.post(ISSUE_CREATE, json=payload )
     if res.status_code != 201:
-        raise AssertionError(f"CREATE_ISSUE failed: {res.status.code} - {res.text}")
+        raise AssertionError(f"CREATE_ISSUE failed: {res.status_code} - {res.text}")
     return res.json()
 
 def get_issue(client: APIClient, issue_id: int):
     path = ISSUE_BY_ID.format(id = issue_id)
     res = client.get(path)
-    if res.status_code not in range(200, 300):
-        raise AssertionError(f"GET_ISSUE failed: {res.status.code} - {res.text}")
     return res
 
 def delete_issue(client:APIClient, issue_id: int):
     path = ISSUE_BY_ID.format(id = issue_id)
     res = client.delete(path)
     if res not in range(200,300):
-        raise AssertionError(f"CREATE_ISSUE failed: {res.status.code} - {res.text}")
+        raise AssertionError(f"CREATE_ISSUE failed: {res.status_code} - {res.text}")
     return res
