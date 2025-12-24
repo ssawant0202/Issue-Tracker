@@ -18,6 +18,10 @@ const handler = NextAuth({
           email: { label: "‎ ", type: "text", placeholder: "Username or E-mail" },
           password: { label: "‎ ", type: "password", placeholder: "Password" }
         },
+
+        // these are two different credentials objects, the one above is a schema/template 
+        // the one below is where the actual user types values are sent by next js 
+        
         async authorize(credentials, req) {
           if(!credentials?.email || !credentials.password) return null;
           

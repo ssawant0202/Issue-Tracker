@@ -8,5 +8,4 @@ def get_config():
 
     if not read_files:
         raise FileNotFoundError(f"Could not read config file at: {config_path}")
-
     return config
