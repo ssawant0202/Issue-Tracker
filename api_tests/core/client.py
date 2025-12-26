@@ -17,8 +17,5 @@ class APIClient:
     def post(self, path: str, json: dict):
         return self.se.post(self._url(path), json=json, timeout=TIMEOUT)
 
-    def patch(self, path: str, json: dict):
-        return self.se.patch(self._url(path), json=json, timeout=TIMEOUT)
-
     def delete(self, path: str):
         return self.se.delete(self._url(path), timeout=TIMEOUT)
