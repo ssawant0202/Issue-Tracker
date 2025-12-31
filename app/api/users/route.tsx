@@ -1,6 +1,6 @@
 import prisma from "@/prisma/client";
 import { NextRequest, NextResponse } from 'next/server';
-
+export const dynamic = "force-dynamic";
 export async function GET(request: NextRequest) { // not adding the parameter makes the cite store cache 
     const users = await prisma.user.findMany({orderBy:{name: 'asc'}});
     return NextResponse.json(users);

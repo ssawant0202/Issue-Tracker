@@ -9,7 +9,7 @@ import LatestIssues from './LatestIssues';
 import IssueSummary from './IssueSummary';
 import IssueChart from './IssueChart';
 import { Metadata } from 'next';
-
+export const dynamic = "force-dynamic";
 interface Props{
   page:number;
 }
